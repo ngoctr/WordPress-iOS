@@ -35,9 +35,10 @@ extension PostEditor where Self: UIViewController {
 
         let prepublishing = PrepublishingViewController(post: post as! Post)
         let prepublishingNavigationController = PrepublishingNavigationController(rootViewController: prepublishing)
-        let bottomSheet = BottomSheetViewController(childViewController: prepublishingNavigationController)
-        bottomSheet.show(from: self, sourceView: navigationBarManager.publishButton)
+//        let bottomSheet = BottomSheetViewController(childViewController: prepublishingNavigationController)
+//        bottomSheet.show(from: self, sourceView: navigationBarManager.publishButton)
 
+        self.presentPanModal(prepublishingNavigationController)
         return
 
         mapUIContentToPostAndSave(immediate: true)

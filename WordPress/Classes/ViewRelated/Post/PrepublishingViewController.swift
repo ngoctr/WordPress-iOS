@@ -1,4 +1,46 @@
 import UIKit
+import PanModal
+
+extension PrepublishingViewController: PanModalPresentable {
+
+    var panScrollable: UIScrollView? {
+        return self.tableView
+    }
+}
+
+class PrepublishingNavigationController: UINavigationController, PanModalPresentable {
+    var panScrollable: UIScrollView? {
+        return (topViewController as? PanModalPresentable)?.panScrollable
+    }
+
+    var longFormHeight: PanModalHeight {
+        return .maxHeight
+    }
+
+    var shortFormHeight: PanModalHeight {
+        return .contentHeight(200)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+
+    }
+
+    @objc func keyboardWillShow(_ notification: NSNotification) {
+        panModalSetNeedsLayoutUpdate()
+        panModalTransition(to: .longForm)
+    }
+
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+//        panModalSetNeedsLayoutUpdate()
+//        panModalTransition(to: .shortForm)
+    }
+}
+
 
 class PrepublishingViewController: UITableViewController {
     private let post: Post
@@ -15,7 +57,9 @@ class PrepublishingViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(WPTableViewCell.self, forCellReuseIdentifier: Constants.reuseIdentifier)
+
     }
+
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -47,14 +91,4 @@ class PrepublishingViewController: UITableViewController {
     private enum Constants {
         static let reuseIdentifier = "wpTableViewCell"
     }
-}
-
-class PrepublishingNavigationController: UINavigationController, BottomSheetPresentable {
-    var initialHeight: CGFloat = 200
-}
-
-typealias UIBottomSheetPresentable = BottomSheetPresentable & UIViewController
-
-protocol BottomSheetPresentable {
-    var initialHeight: CGFloat { get }
 }
