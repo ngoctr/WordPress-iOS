@@ -120,6 +120,7 @@ PODS:
   - OHHTTPStubs/OHPathHelpers (6.1.0)
   - OHHTTPStubs/Swift (6.1.0):
     - OHHTTPStubs/Default
+  - PanModal (1.2.5)
   - RCTRequired (0.61.5)
   - RCTTypeSafety (0.61.5):
     - FBLazyVector (= 0.61.5)
@@ -443,6 +444,7 @@ DEPENDENCIES:
   - OCMock (= 3.4.3)
   - OHHTTPStubs (= 6.1.0)
   - OHHTTPStubs/Swift (= 6.1.0)
+  - PanModal
   - RCTRequired (from `https://raw.githubusercontent.com/wordpress-mobile/gutenberg-mobile/d377b883c761c2a71d29bd631f3d3227b3e313a2/react-native-gutenberg-bridge/third-party-podspecs/RCTRequired.podspec.json`)
   - RCTTypeSafety (from `https://raw.githubusercontent.com/wordpress-mobile/gutenberg-mobile/d377b883c761c2a71d29bd631f3d3227b3e313a2/react-native-gutenberg-bridge/third-party-podspecs/RCTTypeSafety.podspec.json`)
   - Reachability (= 3.2)
@@ -512,6 +514,7 @@ SPEC REPOS:
     - "NSURL+IDN"
     - OCMock
     - OHHTTPStubs
+    - PanModal
     - Reachability
     - Sentry
     - SimulatorStatusMagic
@@ -653,6 +656,7 @@ SPEC CHECKSUMS:
   "NSURL+IDN": afc873e639c18138a1589697c3add197fe8679ca
   OCMock: 43565190abc78977ad44a61c0d20d7f0784d35ab
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
+  PanModal: 7c5af3ad4fe22b91508040965bebffb89fb607ae
   RCTRequired: 3ca691422140f76f04fd2af6dc90914cf0f81ef1
   RCTTypeSafety: aab4e9679dbb3682bf0404fded7b9557d7306795
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
@@ -706,6 +710,6 @@ SPEC CHECKSUMS:
   ZendeskSupportSDK: a87ab1e4badace92c75eb11dc77ede1e995b2adc
   ZIPFoundation: 249fa8890597086cd536bb2df5c9804d84e122b0
 
-PODFILE CHECKSUM: 1b82351f9d4bed9c09edd4919dc2349289f124c5
+PODFILE CHECKSUM: 7581a08c6f053b336973b2e98728b2bba82f5d78
 
 COCOAPODS: 1.8.4
