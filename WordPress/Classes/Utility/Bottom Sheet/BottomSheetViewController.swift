@@ -65,30 +65,39 @@ class BottomSheetViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-
+    private func configureView() {
         view.clipsToBounds = true
         view.layer.cornerRadius = Constants.cornerRadius
         view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         view.backgroundColor = .basicBackground
 
+    }
+
+    private func configureGripButton() {
         NSLayoutConstraint.activate([
             gripButton.heightAnchor.constraint(equalToConstant: Constants.gripHeight)
         ])
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        addKeyboardHandlers()
+        configureView()
+        configureGripButton()
 
         guard let childViewController = childViewController else {
             return
         }
 
+
         // Set the initial height of the child VC
-        heightConstraint = childViewController.view.heightAnchor.constraint(equalToConstant: childViewController.initialHeight)
+        let initialHeight = childViewController.initialHeight
+        heightConstraint = childViewController.view.heightAnchor.constraint(equalToConstant: initialHeight)
         heightConstraint.priority = UILayoutPriority(rawValue: 999)
         heightConstraint.isActive = true
+
         childViewController.view.translatesAutoresizingMaskIntoConstraints = false
 
         addChild(childViewController)
@@ -107,8 +116,13 @@ class BottomSheetViewController: UIViewController {
 
         view.addSubview(stackView)
         view.pinSubviewToSafeArea(stackView, insets: Constants.Stack.insets)
-
+        
         childViewController.didMove(toParent: self)
+    }
+
+    private func setNeedsLayout() {
+        self.presentationController?.containerView?.setNeedsLayout()
+        self.presentationController?.containerView?.layoutIfNeeded()
     }
 
     open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -131,48 +145,91 @@ class BottomSheetViewController: UIViewController {
         return preferredContentSize = CGSize(width: Constants.minimumWidth, height: view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height)
     }
 
-    @objc func keyboardWillShow(_ notification: NSNotification) {
-        let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.30
-        let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt ?? 0
-
-        let heightForKeyboard = UIScreen.main.bounds.height - 200
-
-        UIView.animateKeyframes(withDuration: duration,
-                                delay: 0,
-                                options: UIView.KeyframeAnimationOptions(rawValue: curve),
-                                animations: {
-            // Resize the bottom sheet
-            self.heightConstraint.constant = heightForKeyboard
-            self.presentationController?.containerView?.setNeedsLayout()
-            self.presentationController?.containerView?.layoutIfNeeded()
-
-            // Resize all the subviews if the child VC is a navigation controller
-            self.resizeAllViewControllers(height: heightForKeyboard)
-        }, completion: { _ in
-            // Make sure the subviews keeps the height of the bottom sheet
-            self.resizeAllViewControllers(height: heightForKeyboard)
-        })
-    }
 
     private func resizeAllViewControllers(height: CGFloat) {
         (childViewController as? UINavigationController)?.viewControllers.forEach { viewController in
-            let originalFrame = viewController.view.frame
-            viewController.view.frame = CGRect(x: originalFrame.origin.x, y: originalFrame.origin.y, width: originalFrame.width, height: height)
+            var originalFrame = viewController.view.frame
+            originalFrame.size.height = height
+            viewController.view.frame = originalFrame
         }
+    }
+
+    //MARK: - Keyboard Handling
+    private func addKeyboardHandlers() {
+        let notificationCenter = NotificationCenter.default
+
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     @objc func keyboardWillHide(_ notification: NSNotification) {
         let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.30
         let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt ?? 0
+        let height = self.childViewController?.initialHeight ?? 200
 
         UIView.animateKeyframes(withDuration: duration,
                                 delay: 0,
                                 options: UIView.KeyframeAnimationOptions(rawValue: curve),
                                 animations: {
-            self.heightConstraint.constant = self.childViewController?.initialHeight ?? 200
-            self.presentationController?.containerView?.setNeedsLayout()
-            self.presentationController?.containerView?.layoutIfNeeded()
-        }, completion: nil)
+                                    // Resize the bottom sheet
+                                    self.heightConstraint.constant = height
+                                    self.setNeedsLayout()
+
+                                    // Resize all the subviews if the child VC is a navigation controller
+                                    self.resizeAllViewControllers(height: height)
+        }, completion: { _ in
+            // Make sure the subviews keeps the height of the bottom sheet
+            self.resizeAllViewControllers(height: height)
+        })
+        
+        keyboardIsOpen = false
+    }
+
+    //Disable dismiss interaction when the keyboard is open
+    private var keyboardIsOpen: Bool = false {
+        didSet {
+            bottomSheetPresentationController?.disableInteraction = keyboardIsOpen
+        }
+    }
+
+    //
+    private func bottomInsetFromKeyboardNote(_ note: NSNotification) -> CGFloat {
+        let wrappedRect = note.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        let keyboardRect = wrappedRect?.cgRectValue ?? CGRect.zero
+        let relativeRect = view.convert(keyboardRect, from: nil)
+        let bottomInset = max(relativeRect.height - relativeRect.maxY + view.frame.height, 0)
+
+        return bottomInset
+    }
+
+    @objc func keyboardWillShow(_ notification: NSNotification) {
+        keyboardIsOpen = true
+
+        let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.30
+        let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt ?? 0
+
+        //Total height of the bottom view
+        let heightForKeyboard: CGFloat = UIScreen.main.bounds.height - 100 //Change this to be dynamic
+
+        // Calculates a different height for the nav controllers child views to avoid any clipping issues
+        let keyboardInset: CGFloat = bottomInsetFromKeyboardNote(notification)
+
+        let viewControllerHeight: CGFloat = (heightForKeyboard - keyboardInset - Constants.Header.spacing)
+
+        UIView.animateKeyframes(withDuration: duration,
+                                delay: 0,
+                                options: UIView.KeyframeAnimationOptions(rawValue: curve),
+                                animations: {
+                                    // Resize the bottom sheet
+                                    self.heightConstraint.constant = heightForKeyboard
+                                    self.setNeedsLayout()
+
+                                    // Resize all the subviews if the child VC is a navigation controller
+                                    self.resizeAllViewControllers(height: viewControllerHeight)
+        }, completion: { _ in
+            // Make sure the subviews keeps the height of the bottom sheet
+            self.resizeAllViewControllers(height: viewControllerHeight)
+        })
     }
 }
 
@@ -190,7 +247,13 @@ extension BottomSheetViewController: UIViewControllerTransitioningDelegate {
         return presentationController
     }
 
+    private var bottomSheetPresentationController: BottomSheetPresentationController? {
+        get {
+            return (self.presentationController as? BottomSheetPresentationController)
+        }
+    }
+
     public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return (self.presentedViewController?.presentationController as? BottomSheetPresentationController)?.interactionController
+        return bottomSheetPresentationController?.interactionController
     }
 }

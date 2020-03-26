@@ -35,8 +35,8 @@ class FloatingActionButton: UIButton {
 
     override func updateConstraints() {
         super.updateConstraints()
-
-        trailingConstraint?.isActive = true
+        #warning("TEMP: Fixes a contraint crash")
+//        trailingConstraint?.isActive = true
     }
 
     private func refreshShadow() {

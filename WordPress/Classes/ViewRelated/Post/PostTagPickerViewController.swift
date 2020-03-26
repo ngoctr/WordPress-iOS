@@ -6,7 +6,8 @@ class PostTagPickerViewController: UIViewController {
     private let originalTags: [String]
     @objc var onValueChanged: ((String) -> Void)?
     @objc let blog: Blog
-    @objc let keyboardObserver = TableViewKeyboardObserver()
+    #warning("Temp fix to prevent the view from double handling the keyboard bottom insets")
+//    @objc let keyboardObserver = TableViewKeyboardObserver()
 
     @objc init(tags: String, blog: Blog) {
         originalTags = PostTagPickerViewController.extractTags(from: tags)
@@ -92,7 +93,7 @@ class PostTagPickerViewController: UIViewController {
         textViewContainer.layer.borderWidth = .hairlineBorderWidth
         textViewContainer.layer.masksToBounds = false
 
-        keyboardObserver.tableView = tableView
+//        keyboardObserver.tableView = tableView
     }
 
     override func viewWillAppear(_ animated: Bool) {

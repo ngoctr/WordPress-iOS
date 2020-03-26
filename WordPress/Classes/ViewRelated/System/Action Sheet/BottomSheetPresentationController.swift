@@ -71,8 +71,16 @@ class BottomSheetPresentationController: FancyAlertPresentationController {
 
     var interactionController: UIPercentDrivenInteractiveTransition?
 
+    var disableInteraction: Bool = false
+
     @objc func hide(_ gesture: UIPanGestureRecognizer) {
         guard let gestureView = gesture.view else { return }
+
+        // Tempoary: Disables the interaction when the keyboard is visible
+        // This fixes an issue where the swiping interaction would cause the view to dismiss
+        if disableInteraction {
+            return
+        }
 
         let translate = gesture.translation(in: gestureView)
         let percent   = translate.y / gestureView.bounds.size.height
@@ -90,6 +98,7 @@ class BottomSheetPresentationController: FancyAlertPresentationController {
             /// - If there is downward velocity, dismiss
             /// - If the gesture has no downward velocity and is less than half way down, cancel the dismissal
             let velocity = gesture.velocity(in: gesture.view)
+
             if (percent > 0.5 && velocity.y == 0) || velocity.y > 0 {
                 interactionController?.finish()
             } else {
