@@ -32,11 +32,14 @@ extension PostEditor where Self: UIViewController {
         action: PostEditorAction,
         dismissWhenDone: Bool,
         analyticsStat: WPAnalyticsStat?) {
-
         let prepublishing = PrepublishingViewController(post: post as! Post)
+        let detailsTransitioningDelegate = InteractiveModalTransitioningDelegate(from: self, to: prepublishing)
         let prepublishingNavigationController = PrepublishingNavigationController(rootViewController: prepublishing)
-        let bottomSheet = BottomSheetViewController(childViewController: prepublishingNavigationController)
-        bottomSheet.show(from: self, sourceView: navigationBarManager.publishButton)
+        prepublishingNavigationController.modalPresentationStyle = .custom
+        prepublishingNavigationController.transitioningDelegate = detailsTransitioningDelegate
+        present(prepublishingNavigationController, animated: true, completion: nil)
+       // let bottomSheet = BottomSheetViewController(childViewController: prepublishingNavigationController)
+        //bottomSheet.show(from: self, sourceView: navigationBarManager.publishButton)
 
         return
 
