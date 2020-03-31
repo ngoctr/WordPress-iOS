@@ -422,7 +422,7 @@ DEPENDENCIES:
   - AlamofireNetworkActivityIndicator (~> 2.4)
   - AppCenter (= 2.5.1)
   - AppCenter/Distribute (= 2.5.1)
-  - Automattic-Tracks-iOS (~> 0.4.4)
+  - Automattic-Tracks-iOS (from `https://github.com/Automattic/Automattic-Tracks-iOS.git`, branch `add/encrypted-logging`)
   - Charts (~> 3.2.2)
   - CocoaLumberjack (= 3.5.2)
   - Down (~> 0.6.6)
@@ -492,7 +492,6 @@ SPEC REPOS:
     - Alamofire
     - AlamofireNetworkActivityIndicator
     - AppCenter
-    - Automattic-Tracks-iOS
     - boost-for-react-native
     - Charts
     - CocoaLumberjack
@@ -540,6 +539,9 @@ SPEC REPOS:
     - ZIPFoundation
 
 EXTERNAL SOURCES:
+  Automattic-Tracks-iOS:
+    :branch: add/encrypted-logging
+    :git: https://github.com/Automattic/Automattic-Tracks-iOS.git
   FBLazyVector:
     :podspec: https://raw.githubusercontent.com/wordpress-mobile/gutenberg-mobile/v1.24.0/react-native-gutenberg-bridge/third-party-podspecs/FBLazyVector.podspec.json
   FBReactNativeSpec:
@@ -613,6 +615,9 @@ EXTERNAL SOURCES:
     :podspec: https://raw.githubusercontent.com/wordpress-mobile/gutenberg-mobile/v1.24.0/react-native-gutenberg-bridge/third-party-podspecs/Yoga.podspec.json
 
 CHECKOUT OPTIONS:
+  Automattic-Tracks-iOS:
+    :commit: a6728bd1cce5df80fc2e4ca866e441cf0e354d76
+    :git: https://github.com/Automattic/Automattic-Tracks-iOS.git
   FSInteractiveMap:
     :git: https://github.com/wordpress-mobile/FSInteractiveMap.git
     :tag: 0.2.0
@@ -628,7 +633,7 @@ SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   AlamofireNetworkActivityIndicator: 9acc3de3ca6645bf0efed462396b0df13dd3e7b8
   AppCenter: fddcbac6e4baae3d93a196ceb0bfe0e4ce407dec
-  Automattic-Tracks-iOS: dbe6301bebdc1e444972475bae19299491702cef
+  Automattic-Tracks-iOS: f455dd08413bd44bf821b9b8b36f2a820c00f754
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
   CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
@@ -709,6 +714,6 @@ SPEC CHECKSUMS:
   ZendeskSupportSDK: a87ab1e4badace92c75eb11dc77ede1e995b2adc
   ZIPFoundation: 249fa8890597086cd536bb2df5c9804d84e122b0
 
-PODFILE CHECKSUM: 9b085e37efa04dcc376ad82faf5f1dcf96220518
+PODFILE CHECKSUM: ab190584296ddc9f159dd4e1ed159401077a6070
 
 COCOAPODS: 1.8.4

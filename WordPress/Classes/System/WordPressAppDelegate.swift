@@ -23,7 +23,7 @@ class WordPressAppDelegate: UIResponder, UIApplicationDelegate {
         return WPCrashLoggingProvider()
     }()
 
-    @objc var logger: WPLogger?
+    @objc let logger = WPLogger()
     @objc var internetReachability: Reachability?
     @objc var connectionAvailable: Bool = true
 
@@ -232,9 +232,10 @@ class WordPressAppDelegate: UIResponder, UIApplicationDelegate {
         // Local notifications
         addNotificationObservers()
 
-        logger = WPLogger()
+        let dataSource = EventLoggingDataProvider.fromDDFileLogger(logger.fileLogger)
+        let eventLogging = EventLogging(dataSource: dataSource, delegate: crashLoggingProvider)
 
-        CrashLogging.start(withDataProvider: crashLoggingProvider)
+        CrashLogging.start(withDataProvider: crashLoggingProvider, eventLogging: eventLogging)
 
         configureAppCenterSDK()
         configureAppRatingUtility()
