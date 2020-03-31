@@ -133,7 +133,15 @@ print <<-EOF
 EOF
 end
 
-def print_class(client, secret, sentry, appcenter, giphy, google_client, google_scheme, google_login_server, debugging_key, zendesk_app_id, zendesk_url, zendesk_client_id)
+def print_encrypted_log_key(encrypted_log_key)
+print <<-EOF
++ (NSString *)encryptedLogKey {
+    return @"#{encrypted_log_key}";
+}
+EOF
+end
+
+def print_class(client, secret, sentry, appcenter, giphy, google_client, google_scheme, google_login_server, debugging_key, zendesk_app_id, zendesk_url, zendesk_client_id, encrypted_log_key)
   print <<-EOF
 #import "ApiCredentials.h"
 @implementation ApiCredentials
@@ -150,6 +158,7 @@ EOF
   print_zendesk_app_id(zendesk_app_id)
   print_zendesk_url(zendesk_url)
   print_zendesk_client_id(zendesk_client_id)
+  print_encrypted_log_key(encrypted_log_key)
   printf("@end\n")
 end
 
@@ -177,6 +186,8 @@ debugging_key = nil
 zendesk_app_id = nil
 zendesk_url = nil
 zendesk_client_id = nil
+encrytedlogkey=nil
+
 File.open(path) do |f|
   f.each_line do |l|
     (k,value) = l.split("=")
@@ -190,6 +201,8 @@ File.open(path) do |f|
       sentry = value
     elsif k == "APPCENTER_APP_ID"
       appcenter = value
+    elsif k == "ENCRYPTED_LOGGING_KEY"
+      encrytedlogkey = value
     elsif k == "GIPHY_APP_ID"
       giphy = value
     elsif k == "GOOGLE_LOGIN_CLIENT_ID"
@@ -242,4 +255,4 @@ if !configuration.nil? && ["Release", "Release-Internal"].include?(configuration
   end
 end
 
-print_class(client, secret, sentry, appcenter, giphy, google_client, google_scheme, google_login_server, debugging_key, zendesk_app_id, zendesk_url, zendesk_client_id)
+print_class(client, secret, sentry, appcenter, giphy, google_client, google_scheme, google_login_server, debugging_key, zendesk_app_id, zendesk_url, zendesk_client_id, encrytedlogkey)
