@@ -3,7 +3,6 @@ import WPMediaPicker
 
 /// Prepares the alert controller that will be presented when tapping the "more" button in Aztec's Format Bar
 final class AztecMediaPickingCoordinator {
-    private let giphy = GiphyPicker()
     private let tenor = TenorPicker()
     private let stockPhotos = StockPhotosPicker()
 
@@ -41,12 +40,6 @@ final class AztecMediaPickingCoordinator {
         })
     }
 
-    private func giphyAction(origin: UIViewController, blog: Blog) -> UIAlertAction {
-        return UIAlertAction(title: .giphy, style: .default, handler: { [weak self] action in
-            self?.showGiphy(origin: origin, blog: blog)
-        })
-    }
-
     private func tenorAction(origin: UIViewController, blog: Blog) -> UIAlertAction {
         return UIAlertAction(title: .tenor, style: .default, handler: { [weak self] action in
             self?.showTenor(origin: origin, blog: blog)
@@ -65,10 +58,6 @@ final class AztecMediaPickingCoordinator {
 
     private func showStockPhotos(origin: UIViewController, blog: Blog) {
         stockPhotos.presentPicker(origin: origin, blog: blog)
-    }
-
-    private func showGiphy(origin: UIViewController, blog: Blog) {
-        giphy.presentPicker(origin: origin, blog: blog)
     }
 
     private func showTenor(origin: UIViewController, blog: Blog) {
