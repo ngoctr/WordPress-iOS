@@ -1556,6 +1556,21 @@
 		C533CF350E6D3ADA000C3DE8 /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C533CF340E6D3ADA000C3DE8 /* CommentsViewController.m */; };
 		C545E0A21811B9880020844C /* ContextManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C545E0A11811B9880020844C /* ContextManager.m */; };
 		C56636E91868D0CE00226AAB /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C56636E71868D0CE00226AAB /* StatsViewController.m */; };
+		C88DE0D02436A9DE00010C2C /* NoResultsTenorConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0C62436A9DD00010C2C /* NoResultsTenorConfiguration.swift */; };
+		C88DE0D12436A9DE00010C2C /* TenorDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0C72436A9DD00010C2C /* TenorDataLoader.swift */; };
+		C88DE0D22436A9DE00010C2C /* TenorPageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0C82436A9DD00010C2C /* TenorPageable.swift */; };
+		C88DE0D32436A9DE00010C2C /* TenorDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0C92436A9DD00010C2C /* TenorDataSource.swift */; };
+		C88DE0D42436A9DE00010C2C /* TenorMediaGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0CA2436A9DD00010C2C /* TenorMediaGroup.swift */; };
+		C88DE0D52436A9DE00010C2C /* TenorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0CB2436A9DD00010C2C /* TenorService.swift */; };
+		C88DE0D62436A9DE00010C2C /* TenorStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0CC2436A9DD00010C2C /* TenorStrings.swift */; };
+		C88DE0D72436A9DE00010C2C /* TenorResultsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0CD2436A9DD00010C2C /* TenorResultsPage.swift */; };
+		C88DE0D82436A9DE00010C2C /* TenorMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0CE2436A9DD00010C2C /* TenorMedia.swift */; };
+		C88DE0D92436A9DE00010C2C /* TenorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0CF2436A9DD00010C2C /* TenorPicker.swift */; };
+		C88DE0DC2436B58100010C2C /* TenorGIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0DB2436B58100010C2C /* TenorGIF.swift */; };
+		C88DE0DE2436B5BE00010C2C /* TenorMediaObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0DD2436B5BE00010C2C /* TenorMediaObject.swift */; };
+		C88DE0E02436B5E300010C2C /* TenorGIFCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0DF2436B5E300010C2C /* TenorGIFCollection.swift */; };
+		C88DE0E22436B61200010C2C /* TenorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0E12436B61200010C2C /* TenorResponse.swift */; };
+		C88DE0E42436B74500010C2C /* TenorClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0E32436B74500010C2C /* TenorClient.swift */; };
 		CC19BE06223FECAC00CAB3E1 /* EditorPostSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC19BE05223FECAC00CAB3E1 /* EditorPostSettings.swift */; };
 		CC2BB0CA2289CC3B0034F9AB /* BlockEditorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2BB0C92289CC3B0034F9AB /* BlockEditorScreen.swift */; };
 		CC2BB0D0228ACF710034F9AB /* EditorGutenbergTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2BB0CF228ACF710034F9AB /* EditorGutenbergTests.swift */; };
@@ -3990,6 +4005,21 @@
 		C545E0A11811B9880020844C /* ContextManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextManager.m; sourceTree = "<group>"; };
 		C56636E61868D0CE00226AAB /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
 		C56636E71868D0CE00226AAB /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = StatsViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		C88DE0C62436A9DD00010C2C /* NoResultsTenorConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoResultsTenorConfiguration.swift; sourceTree = "<group>"; };
+		C88DE0C72436A9DD00010C2C /* TenorDataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenorDataLoader.swift; sourceTree = "<group>"; };
+		C88DE0C82436A9DD00010C2C /* TenorPageable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenorPageable.swift; sourceTree = "<group>"; };
+		C88DE0C92436A9DD00010C2C /* TenorDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenorDataSource.swift; sourceTree = "<group>"; };
+		C88DE0CA2436A9DD00010C2C /* TenorMediaGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenorMediaGroup.swift; sourceTree = "<group>"; };
+		C88DE0CB2436A9DD00010C2C /* TenorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenorService.swift; sourceTree = "<group>"; };
+		C88DE0CC2436A9DD00010C2C /* TenorStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenorStrings.swift; sourceTree = "<group>"; };
+		C88DE0CD2436A9DD00010C2C /* TenorResultsPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenorResultsPage.swift; sourceTree = "<group>"; };
+		C88DE0CE2436A9DD00010C2C /* TenorMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenorMedia.swift; sourceTree = "<group>"; };
+		C88DE0CF2436A9DD00010C2C /* TenorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenorPicker.swift; sourceTree = "<group>"; };
+		C88DE0DB2436B58100010C2C /* TenorGIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenorGIF.swift; sourceTree = "<group>"; };
+		C88DE0DD2436B5BE00010C2C /* TenorMediaObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenorMediaObject.swift; sourceTree = "<group>"; };
+		C88DE0DF2436B5E300010C2C /* TenorGIFCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenorGIFCollection.swift; sourceTree = "<group>"; };
+		C88DE0E12436B61200010C2C /* TenorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenorResponse.swift; sourceTree = "<group>"; };
+		C88DE0E32436B74500010C2C /* TenorClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenorClient.swift; sourceTree = "<group>"; };
 		C9264D275F6288F66C33D2CE /* Pods-WordPressTest.release-internal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordPressTest.release-internal.xcconfig"; path = "../Pods/Target Support Files/Pods-WordPressTest/Pods-WordPressTest.release-internal.xcconfig"; sourceTree = "<group>"; };
 		C9BDC428A69177C2CBF0C247 /* Pods-WordPressShareExtension.release-internal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordPressShareExtension.release-internal.xcconfig"; path = "../Pods/Target Support Files/Pods-WordPressShareExtension/Pods-WordPressShareExtension.release-internal.xcconfig"; sourceTree = "<group>"; };
 		CC19BE05223FECAC00CAB3E1 /* EditorPostSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorPostSettings.swift; sourceTree = "<group>"; };
@@ -6485,6 +6515,7 @@
 		5DA5BF4A18E32DE2005F11F9 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				C88DE0C52436A9DD00010C2C /* Tenor */,
 				177B4C232123152D00CF8084 /* Giphy */,
 				D8A3A5AD206A059100992576 /* StockPhotos */,
 				FF8A04DF1D9BFE7400523BC4 /* CachedAnimatedImageView.swift */,
@@ -9193,6 +9224,36 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		C88DE0C52436A9DD00010C2C /* Tenor */ = {
+			isa = PBXGroup;
+			children = (
+				C88DE0DA2436B52000010C2C /* TenorAPI */,
+				C88DE0C62436A9DD00010C2C /* NoResultsTenorConfiguration.swift */,
+				C88DE0C72436A9DD00010C2C /* TenorDataLoader.swift */,
+				C88DE0C82436A9DD00010C2C /* TenorPageable.swift */,
+				C88DE0C92436A9DD00010C2C /* TenorDataSource.swift */,
+				C88DE0CA2436A9DD00010C2C /* TenorMediaGroup.swift */,
+				C88DE0CB2436A9DD00010C2C /* TenorService.swift */,
+				C88DE0CC2436A9DD00010C2C /* TenorStrings.swift */,
+				C88DE0CD2436A9DD00010C2C /* TenorResultsPage.swift */,
+				C88DE0CE2436A9DD00010C2C /* TenorMedia.swift */,
+				C88DE0CF2436A9DD00010C2C /* TenorPicker.swift */,
+			);
+			path = Tenor;
+			sourceTree = "<group>";
+		};
+		C88DE0DA2436B52000010C2C /* TenorAPI */ = {
+			isa = PBXGroup;
+			children = (
+				C88DE0DB2436B58100010C2C /* TenorGIF.swift */,
+				C88DE0DF2436B5E300010C2C /* TenorGIFCollection.swift */,
+				C88DE0DD2436B5BE00010C2C /* TenorMediaObject.swift */,
+				C88DE0E12436B61200010C2C /* TenorResponse.swift */,
+				C88DE0E32436B74500010C2C /* TenorClient.swift */,
+			);
+			path = TenorAPI;
+			sourceTree = "<group>";
+		};
 		CC098B8116A9EB0400450976 /* HTML */ = {
 			isa = PBXGroup;
 			children = (
@@ -11638,6 +11699,7 @@
 				7E4A773920F80417001C706D /* ActivityPluginRange.swift in Sources */,
 				7462BFD02028C49800B552D8 /* ShareNoticeViewModel.swift in Sources */,
 				17A4A36920EE51870071C2CA /* Routes+Reader.swift in Sources */,
+				C88DE0D52436A9DE00010C2C /* TenorService.swift in Sources */,
 				0807CB721CE670A800CDBDAC /* WPContentSearchHelper.swift in Sources */,
 				9A73B7152362FBAE004624A8 /* SiteStatsViewModel+AsyncBlock.swift in Sources */,
 				74AF4D7C1FE417D200E3EBFE /* PostUploadOperation.swift in Sources */,
@@ -11726,6 +11788,7 @@
 				981C986821B9BDF300A7C0C8 /* PostingActivityViewController.swift in Sources */,
 				E69EF9D51BFA539F00ED0554 /* ReaderDetailViewController.swift in Sources */,
 				17F67C56203D81430072001E /* PostCardStatusViewModel.swift in Sources */,
+				C88DE0D82436A9DE00010C2C /* TenorMedia.swift in Sources */,
 				E63BBC961C5168BE00598BE8 /* SharingAuthorizationHelper.m in Sources */,
 				B55853F719630D5400FAF6C3 /* NSAttributedString+Util.m in Sources */,
 				98880A4A22B2E5E400464538 /* TwoColumnCell.swift in Sources */,
@@ -11777,6 +11840,7 @@
 				D8A3A5AC2069FE5B00992576 /* StockPhotosStrings.swift in Sources */,
 				C56636E91868D0CE00226AAB /* StatsViewController.m in Sources */,
 				E6805D301DCD399600168E4F /* WPRichTextEmbed.swift in Sources */,
+				C88DE0D72436A9DE00010C2C /* TenorResultsPage.swift in Sources */,
 				3249615223F20111004C7733 /* PostSignUpInterstitialViewController.swift in Sources */,
 				9A09F91E230C4C0200F42AB7 /* StatsGhostTableViewRows.swift in Sources */,
 				7E53AB0020FE55A9005796FE /* ActivityContentRouter.swift in Sources */,
@@ -11818,6 +11882,7 @@
 				43D74AD620FB5AD5004AD934 /* RegisterDomainSectionHeaderView.swift in Sources */,
 				986DD19C218D002500D28061 /* WPStyleGuide+Stats.swift in Sources */,
 				FF00889B204DF3ED007CCE66 /* Blog+Quota.swift in Sources */,
+				C88DE0DE2436B5BE00010C2C /* TenorMediaObject.swift in Sources */,
 				C533CF350E6D3ADA000C3DE8 /* CommentsViewController.m in Sources */,
 				FAFF153D1C98962E007D1C90 /* SiteSettingsViewController+SiteManagement.swift in Sources */,
 				D816C1EE20E0892200C4D82F /* Follow.swift in Sources */,
@@ -11935,6 +12000,7 @@
 				40A2777F20191AA500D078D5 /* PluginDirectoryCollectionViewCell.swift in Sources */,
 				7E40716223741376003627FA /* GutenbergNetworking.swift in Sources */,
 				17BD4A192101D31B00975AC3 /* NavigationActionHelpers.swift in Sources */,
+				C88DE0D32436A9DE00010C2C /* TenorDataSource.swift in Sources */,
 				B55FFCFA1F034F1A0070812C /* String+Ranges.swift in Sources */,
 				7E846FF320FD37BD00881F5A /* ActivityCommentRange.swift in Sources */,
 				9AA0ADB1235F11700027AB5D /* AsyncOperation.swift in Sources */,
@@ -11946,6 +12012,7 @@
 				177074851FB209F100951A4A /* CircularProgressView.swift in Sources */,
 				98458CB821A39D350025D232 /* StatsNoDataRow.swift in Sources */,
 				7462BFD42028CD4400B552D8 /* ShareNoticeNavigationCoordinator.swift in Sources */,
+				C88DE0E42436B74500010C2C /* TenorClient.swift in Sources */,
 				D80BC7A02074722000614A59 /* CameraCaptureCoordinator.swift in Sources */,
 				4089C51022371B120031CE78 /* TodayStatsRecordValue+CoreDataClass.swift in Sources */,
 				988F073523D0CE8800AC67A6 /* WidgetUrlCell.swift in Sources */,
@@ -12026,6 +12093,7 @@
 				83FEFC7611FF6C5A0078B462 /* SiteSettingsViewController.m in Sources */,
 				91DCE84421A6A7840062F134 /* PostEditor+BlogPicker.swift in Sources */,
 				B56994451B7A7EF200FF26FA /* WPStyleGuide+Comments.swift in Sources */,
+				C88DE0D92436A9DE00010C2C /* TenorPicker.swift in Sources */,
 				8B05D29123A9417E0063B9AA /* WPMediaEditor.swift in Sources */,
 				D816C1EC20E0887C00C4D82F /* ApproveComment.swift in Sources */,
 				74AF4D741FE417D200E3EBFE /* MediaUploadOperation.swift in Sources */,
@@ -12054,6 +12122,7 @@
 				9A4E215C21F75BBE00EFF212 /* QuickStartChecklistManager.swift in Sources */,
 				9A8ECE0F2254A3260043C8DA /* JetpackRemoteInstallViewController.swift in Sources */,
 				1724DDC81C60F1200099D273 /* PlanDetailViewController.swift in Sources */,
+				C88DE0D62436A9DE00010C2C /* TenorStrings.swift in Sources */,
 				9A2CD5372146B8C700AE5055 /* Array+Page.swift in Sources */,
 				5D6C4B091B603E03005E3C43 /* WPTableViewHandler.m in Sources */,
 				40EE947F2213213F00CD264F /* PublicizeConnectionStatsRecordValue+CoreDataClass.swift in Sources */,
@@ -12118,6 +12187,7 @@
 				E1D458691309589C00BF0235 /* Coordinate.m in Sources */,
 				323F8F3123A22C8F000BA49C /* SiteCreationRotatingMessageView.swift in Sources */,
 				43DC0EF12040B23200896C9C /* SignupUsernameViewController.swift in Sources */,
+				C88DE0D42436A9DE00010C2C /* TenorMediaGroup.swift in Sources */,
 				1782BE841E70063100A91E7D /* MediaItemViewController.swift in Sources */,
 				E10A2E9B134E8AD3007643F9 /* PostAnnotation.m in Sources */,
 				7E3E9B702177C9DC00FD5797 /* GutenbergViewController.swift in Sources */,
@@ -12157,6 +12227,7 @@
 				0845B8C61E833C56001BA771 /* URL+Helpers.swift in Sources */,
 				17D975AF1EF7F6F100303D63 /* WPStyleGuide+Aztec.swift in Sources */,
 				5D17F0BE1A1D4C5F0087CCB8 /* PrivateSiteURLProtocol.m in Sources */,
+				C88DE0D12436A9DE00010C2C /* TenorDataLoader.swift in Sources */,
 				E14B40FF1C58B93F005046F6 /* SettingsCommon.swift in Sources */,
 				B50C0C661EF42B6400372C65 /* FormatBarItemProviders.swift in Sources */,
 				439F4F352196537500F8D0C7 /* RevisionDiffViewController.swift in Sources */,
@@ -12460,6 +12531,7 @@
 				9AA0ADB3235F11DC0027AB5D /* StatsPeriodAsyncOperation.swift in Sources */,
 				B5DBE4FE1D21A700002E81D3 /* NotificationsViewController.swift in Sources */,
 				E1B84F001E02E94D00BF6434 /* PingHubManager.swift in Sources */,
+				C88DE0D02436A9DE00010C2C /* NoResultsTenorConfiguration.swift in Sources */,
 				E1CECE051E6F01CE009C6695 /* PostPreviewGenerator.swift in Sources */,
 				086103961EE09C91004D7C01 /* MediaVideoExporter.swift in Sources */,
 				E126C81F1F95FC1B00A5F464 /* PluginViewController.swift in Sources */,
@@ -12599,6 +12671,7 @@
 				E6374DC11C444D8B00F24720 /* PublicizeService.swift in Sources */,
 				7E4A773C20F80598001C706D /* ActivityContentFactory.swift in Sources */,
 				98797DBC222F434500128C21 /* OverviewCell.swift in Sources */,
+				C88DE0E22436B61200010C2C /* TenorResponse.swift in Sources */,
 				931D26FE19EDA10D00114F17 /* ALIterativeMigrator.m in Sources */,
 				1749965F2271BF08007021BD /* WordPressAppDelegate.swift in Sources */,
 				5DA3EE161925090A00294E0B /* MediaService.m in Sources */,
@@ -12611,6 +12684,7 @@
 				CE46018B21139E8300F242B6 /* FooterTextContent.swift in Sources */,
 				B5EEDB971C91F10400676B2B /* Blog+Interface.swift in Sources */,
 				5D839AA8187F0D6B00811F4A /* PostFeaturedImageCell.m in Sources */,
+				C88DE0D22436A9DE00010C2C /* TenorPageable.swift in Sources */,
 				171909E4206CFFCD0054DF0B /* FancyAlertViewController+Async.swift in Sources */,
 				FFCB9F4B22A125BD0080A45F /* WPException.m in Sources */,
 				9A9E3FAD230E9DD000909BC4 /* StatsGhostCells.swift in Sources */,
@@ -12670,6 +12744,7 @@
 				E100C6BB1741473000AE48D8 /* WordPress-11-12.xcmappingmodel in Sources */,
 				9A38DC6D218899FB006A409B /* DiffAbstractValue.swift in Sources */,
 				177B4C252123161900CF8084 /* GiphyPicker.swift in Sources */,
+				C88DE0DC2436B58100010C2C /* TenorGIF.swift in Sources */,
 				17B7C8C120EE2A870042E260 /* Routes+Notifications.swift in Sources */,
 				7E92A1FB233CB1B7006D281B /* Autosaver.swift in Sources */,
 				9A341E5621997A340036662E /* BlogAuthor.swift in Sources */,
@@ -12697,6 +12772,7 @@
 				B522C4F81B3DA79B00E47B59 /* NotificationSettingsViewController.swift in Sources */,
 				9A51DA1522E9E8C7005CC335 /* ChangeUsernameViewController.swift in Sources */,
 				5D6C4B121B604190005E3C43 /* RichTextView.swift in Sources */,
+				C88DE0E02436B5E300010C2C /* TenorGIFCollection.swift in Sources */,
 				3F43602F23F31D48001DEE70 /* ScenePresenter.swift in Sources */,
 				9A4E271D22EF33F5001F6A6B /* AccountSettingsStore.swift in Sources */,
 				4319AADE2090F00C0025D68E /* FancyAlertViewController+NotificationPrimer.swift in Sources */,
