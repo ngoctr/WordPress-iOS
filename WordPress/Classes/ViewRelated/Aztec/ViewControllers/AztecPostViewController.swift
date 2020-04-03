@@ -3313,10 +3313,10 @@ extension AztecPostViewController: StockPhotosPickerDelegate {
     }
 }
 
-extension AztecPostViewController: GiphyPickerDelegate {
-    func giphyPicker(_ picker: GiphyPicker, didFinishPicking assets: [GiphyMedia]) {
+extension AztecPostViewController: TenorPickerDelegate {
+    func tenorPicker(_ picker: TenorPicker, didFinishPicking assets: [TenorMedia]) {
         assets.forEach {
-            insert(exportableAsset: $0, source: .giphy)
+            insert(exportableAsset: $0, source: .tenor)
         }
     }
 }
