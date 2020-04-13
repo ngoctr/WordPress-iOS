@@ -364,6 +364,9 @@ PODS:
   - RNTAztecView (1.25.0):
     - React-Core
     - WordPress-Aztec-iOS (~> 1.17.1)
+  - SDWebImage (5.7.2):
+    - SDWebImage/Core (= 5.7.2)
+  - SDWebImage/Core (5.7.2)
   - Sentry (4.5.0):
     - Sentry/Core (= 4.5.0)
   - Sentry/Core (4.5.0)
@@ -400,7 +403,8 @@ PODS:
     - CocoaLumberjack (~> 3.4)
     - FormatterKit/TimeIntervalFormatter (= 1.8.2)
   - WordPressUI (1.5.3-beta.1)
-  - WPMediaPicker (1.6.1)
+  - WPMediaPicker (1.6.2-beta):
+    - SDWebImage (~> 5.0)
   - wpxmlrpc (0.8.5)
   - Yoga (1.14.0)
   - ZendeskCommonUISDK (4.0.0):
@@ -484,7 +488,7 @@ DEPENDENCIES:
   - WordPressMocks (~> 0.0.8)
   - WordPressShared (~> 1.8.16)
   - WordPressUI (~> 1.5.3-beta.1)
-  - WPMediaPicker (~> 1.6.1)
+  - WPMediaPicker (from `https://github.com/ngoctr/MediaPicker-iOS.git`, branch `animated-gif-support`)
   - Yoga (from `https://raw.githubusercontent.com/wordpress-mobile/gutenberg-mobile/v1.25.0/react-native-gutenberg-bridge/third-party-podspecs/Yoga.podspec.json`)
   - ZendeskSupportSDK (= 5.0.0)
   - ZIPFoundation (~> 0.9.8)
@@ -518,6 +522,7 @@ SPEC REPOS:
     - OCMock
     - OHHTTPStubs
     - Reachability
+    - SDWebImage
     - Sentry
     - SimulatorStatusMagic
     - Sodium
@@ -532,7 +537,6 @@ SPEC REPOS:
     - WordPressMocks
     - WordPressShared
     - WordPressUI
-    - WPMediaPicker
     - wpxmlrpc
     - ZendeskCommonUISDK
     - ZendeskCoreSDK
@@ -613,6 +617,9 @@ EXTERNAL SOURCES:
   RNTAztecView:
     :git: http://github.com/wordpress-mobile/gutenberg-mobile/
     :tag: v1.25.0
+  WPMediaPicker:
+    :branch: animated-gif-support
+    :git: https://github.com/ngoctr/MediaPicker-iOS.git
   Yoga:
     :podspec: https://raw.githubusercontent.com/wordpress-mobile/gutenberg-mobile/v1.25.0/react-native-gutenberg-bridge/third-party-podspecs/Yoga.podspec.json
 
@@ -626,6 +633,9 @@ CHECKOUT OPTIONS:
   RNTAztecView:
     :git: http://github.com/wordpress-mobile/gutenberg-mobile/
     :tag: v1.25.0
+  WPMediaPicker:
+    :commit: f579618562afbd465c5b385d4753f0651043e651
+    :git: https://github.com/ngoctr/MediaPicker-iOS.git
 
 SPEC CHECKSUMS:
   1PasswordExtension: f97cc80ae58053c331b2b6dc8843ba7103b33794
@@ -688,6 +698,7 @@ SPEC CHECKSUMS:
   ReactNativeDarkMode: f61376360c5d983907e5c316e8e1c853a8c2f348
   RNSVG: 68a534a5db06dcbdaebfd5079349191598caef7b
   RNTAztecView: 3fb0f122cea9b3bcf502da8380de5cd552d43585
+  SDWebImage: d9ea4959d99c52276dfada481987018fcaea3d58
   Sentry: ab6c209f23700d1460691dbc90e19ed0a05d496b
   SimulatorStatusMagic: 28d4a9d1a500ac7cea0b2b5a43c1c6ddb40ba56c
   Sodium: 63c0ca312a932e6da481689537d4b35568841bdc
@@ -702,7 +713,7 @@ SPEC CHECKSUMS:
   WordPressMocks: b4064b99a073117bbc304abe82df78f2fbe60992
   WordPressShared: 1bc316ed162f42af4e0fa2869437e9e28b532b01
   WordPressUI: 91b91e51b8cd7db83a2bd492c12998db711a6a57
-  WPMediaPicker: 59559813ec8a7929a91aa5a1db74998d8485fb9f
+  WPMediaPicker: cfa1026693340040b9ff8ed949fd6d3334ec9ceb
   wpxmlrpc: 6a9bdd6ab9d1b159b384b0df0f3f39de9af4fecf
   Yoga: c920bf12bf8146aa5cd118063378c2cf5682d16c
   ZendeskCommonUISDK: 3c432801e31abff97d6e30441ea102eaef6b99e2
@@ -714,6 +725,6 @@ SPEC CHECKSUMS:
   ZendeskSupportSDK: a87ab1e4badace92c75eb11dc77ede1e995b2adc
   ZIPFoundation: 249fa8890597086cd536bb2df5c9804d84e122b0
 
-PODFILE CHECKSUM: 082f5addde6658b17532f09619ce370f79441e6b
+PODFILE CHECKSUM: 025999cce0bb0ca6cd8ac582f1d04c5a41663109
 
 COCOAPODS: 1.8.4

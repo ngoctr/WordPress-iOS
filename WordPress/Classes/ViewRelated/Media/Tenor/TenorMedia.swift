@@ -56,8 +56,7 @@ extension TenorMedia: WPMediaAsset {
         DispatchQueue.global().async {
             do {
                 let data = try Data(contentsOf: url)
-                let image = UIImage(data: data)
-                completionHandler(image, nil)
+                completionHandler(data, nil)
             } catch {
                 completionHandler(nil, error)
             }

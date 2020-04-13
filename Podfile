@@ -178,10 +178,11 @@ target 'WordPress' do
 
     pod 'NSURL+IDN', '~> 0.4'
 
-    pod 'WPMediaPicker', '~> 1.6.1'
+    # pod 'WPMediaPicker', '~> 1.6.1'
     ## while PR is in review:
     # pod 'WPMediaPicker', :git => 'https://github.com/wordpress-mobile/MediaPicker-iOS.git', :branch => ''
     # pod 'WPMediaPicker', :path => '../MediaPicker-iOS'
+    pod 'WPMediaPicker', :git => 'https://github.com/ngoctr/MediaPicker-iOS.git', :branch => 'animated-gif-support'
 
     pod 'Gridicons', '~> 1.0.1'
 

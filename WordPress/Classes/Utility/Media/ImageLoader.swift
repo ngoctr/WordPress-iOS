@@ -315,8 +315,8 @@ extension ImageLoader {
     private func loadImage(from media: Media, preferredSize size: CGSize) {
         imageView.image = placeholder
         imageView.startLoadingAnimation()
-        media.image(with: size) {  [weak self] (image, error) in
-            if let image = image {
+        media.image(with: size) {  [weak self] (data, error) in
+            if data != nil, let image = UIImage(data: data!) {
                 self?.imageView.image = image
                 self?.callSuccessHandler()
             } else {

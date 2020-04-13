@@ -8,7 +8,7 @@
 
 - (WPMediaRequestID)imageWithSize:(CGSize)size completionHandler:(WPMediaImageBlock)completionHandler
 {
-    [MediaThumbnailCoordinator.shared thumbnailFor:self with:size onCompletion:^(UIImage *image, NSError *error) {
+    [MediaThumbnailCoordinator.shared thumbnailFor:self with:size onCompletion:^(NSData *data, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
                 if (completionHandler) {
@@ -17,7 +17,7 @@
                 return;
             }
             if (completionHandler) {
-                completionHandler(image, nil);
+                completionHandler(data, nil);
             }
         });
     }];

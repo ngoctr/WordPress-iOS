@@ -17,7 +17,7 @@ class MediaThumbnailCoordinator: NSObject {
 
     private let queue = DispatchQueue(label: "org.wordpress.media_thumbnail_coordinator", qos: .default)
 
-    typealias ThumbnailBlock = (UIImage?, Error?) -> Void
+    typealias ThumbnailBlock = (Data?, Error?) -> Void
     typealias LoadStubMediaCompletionBlock = (Media?, Error?) -> Void
 
     private lazy var mediaThumbnailService: MediaThumbnailService = {
@@ -49,9 +49,9 @@ class MediaThumbnailCoordinator: NSObject {
                 }
                 return
             }
-            let image = UIImage(contentsOfFile: imageURL.path)
+            let data = try? Data(contentsOf: imageURL)
             DispatchQueue.main.async {
-                onCompletion(image, nil)
+                onCompletion(data, nil)
             }
         }, onError: { (error) in
             DispatchQueue.main.async {

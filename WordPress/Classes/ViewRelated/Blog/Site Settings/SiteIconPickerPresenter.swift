@@ -232,8 +232,8 @@ extension SiteIconPickerPresenter: WPMediaPickerViewControllerDelegate {
         case let media as Media:
             showLoadingMessage()
             originalMedia = media
-            MediaThumbnailCoordinator.shared.thumbnail(for: media, with: CGSize.zero, onCompletion: { [weak self] (image, error) in
-                guard let image = image else {
+            MediaThumbnailCoordinator.shared.thumbnail(for: media, with: CGSize.zero, onCompletion: { [weak self] (data, error) in
+                guard data != nil, let image = UIImage(data: data!) else {
                     self?.showErrorLoadingImageMessage()
                     return
                 }

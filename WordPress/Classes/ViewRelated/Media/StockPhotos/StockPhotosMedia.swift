@@ -39,8 +39,7 @@ extension StockPhotosMedia: WPMediaAsset {
         DispatchQueue.global().async {
             do {
                 let data = try Data(contentsOf: thumb)
-                let image = UIImage(data: data)
-                completionHandler(image, nil)
+                completionHandler(data, nil)
             } catch {
                 completionHandler(nil, error)
             }
